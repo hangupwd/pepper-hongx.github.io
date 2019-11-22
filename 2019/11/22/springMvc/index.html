@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>归所</title>
+  <title>springMvc | 归所</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="归所">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+<meta name="keywords" content="springMvc,java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springMvc">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;22&#x2F;springMvc&#x2F;index.html">
 <meta property="og:site_name" content="归所">
 <meta property="og:description" content="个人技术博客">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-22T06:39:04.246Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="归所" type="application/atom+xml">
@@ -139,16 +141,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-springMvc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-springMvc" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/springMvc/">springMvc</a>
+    <h1 class="article-title" itemprop="name">
+      springMvc
     </h1>
   
 
@@ -164,6 +164,37 @@
         
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/VXalipay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
 
       
@@ -189,16 +220,24 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/springMvc/">展开全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/22/1%E3%80%81springMvc/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">1、springMvc</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -213,149 +252,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-1、springMvc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/1%E3%80%81springMvc/">1、springMvc</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/1%E3%80%81springMvc/" class="archive-article-date">
-  	<time datetime="2019-11-22T03:15:39.062Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="springMvc"><a href="#springMvc" class="headerlink" title="springMvc"></a>springMvc</h1><h2 id="1、拦截所有的请求，交给springMvc处理-DispatcherServlet"><a href="#1、拦截所有的请求，交给springMvc处理-DispatcherServlet" class="headerlink" title="1、拦截所有的请求，交给springMvc处理(DispatcherServlet)"></a>1、拦截所有的请求，交给springMvc处理(DispatcherServlet)</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 拦截所有的servlet请求给springMVC处理 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springDispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		配置xml文件的位置，若不配置文件的位置，</span></span><br><span class="line"><span class="comment">		使用默认的文件位置(固定文件名)web-inf/springDispatcherServlet-servlet.xml</span></span><br><span class="line"><span class="comment">	--&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span>        </span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springMvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span> //随tomcat服务器启动</span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springDispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">	/ 拦截所有的请求</span></span><br><span class="line"><span class="comment">	/user 拦截以user开头的请求</span></span><br><span class="line"><span class="comment">	/user/abc.dao 只拦截该请求</span></span><br><span class="line"><span class="comment">	.action 只拦截这种类型的请求	</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/1%E3%80%81springMvc/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-「我只是认真」聊聊工匠情怀" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/%E3%80%8C%E6%88%91%E5%8F%AA%E6%98%AF%E8%AE%A4%E7%9C%9F%E3%80%8D%E8%81%8A%E8%81%8A%E5%B7%A5%E5%8C%A0%E6%83%85%E6%80%80/">「我只是认真」聊聊工匠情怀</a>
-    </h1>
   
 
-        
-        <a href="/2019/11/22/%E3%80%8C%E6%88%91%E5%8F%AA%E6%98%AF%E8%AE%A4%E7%9C%9F%E3%80%8D%E8%81%8A%E8%81%8A%E5%B7%A5%E5%8C%A0%E6%83%85%E6%80%80/" class="archive-article-date">
-  	<time datetime="2019-11-22T03:07:11.125Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="「我只是认真」聊聊工匠情怀"><a href="#「我只是认真」聊聊工匠情怀" class="headerlink" title="「我只是认真」聊聊工匠情怀"></a>「我只是认真」聊聊工匠情怀</h1><p>老罗的Smartisan T1手机发布会很多人应该都看了，发布会的最后老罗凝视着自己的工匠自画像，半晌没说话，随后转过身，慢慢离开舞台，屏幕下方只留下一句话：</p>
-<p><strong>我不是为了输赢，我就是认真。</strong></p>
-<p>这一瞬间让我想起93年「狮城舌战」的主角蒋昌建，在「人性本善还是人性本恶」的总结陈词最后，以顾城的名句，「黑夜给了我黑色的眼睛，我却用它寻找光明」，把整个辩论赛的氛围推向高潮。</p>
-<p>而老罗的这句话，和这句话背后的工匠背景，却以另外一种<strong>无声的却震人心魄的力量</strong>，敲打着每一个在场的，或是观看着整个发布会的观众的心绪。</p>
-<p>「工匠情怀」，我深有体会，就像我在 <a href="http://blog.hesey.net/2014/05/gc-oriented-java-programming.html" target="_blank" rel="noopener">面向GC的Java编程</a> 一文中所提到的：</p>
-<p><strong>优秀程序员的价值，不在于其所掌握的几招屠龙之术，而是在细节中见真著。</strong></p>
-<p><strong>如果我们可以一次把事情做对，并且做好，在允许的范围内尽可能追求卓越，为什么不去做呢？</strong></p>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/%E3%80%8C%E6%88%91%E5%8F%AA%E6%98%AF%E8%AE%A4%E7%9C%9F%E3%80%8D%E8%81%8A%E8%81%8A%E5%B7%A5%E5%8C%A0%E6%83%85%E6%80%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
+
   
 
 
@@ -378,8 +300,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
