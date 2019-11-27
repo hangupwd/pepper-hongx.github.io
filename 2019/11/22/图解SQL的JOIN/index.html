@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>1、springMvc | 归所</title>
+  <title>图解SQL的JOIN | 归所</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="springMvc1、拦截所有的请求，交给springMvc处理(DispatcherServlet)12345678910111213141516171819202122232425&amp;lt;!-- 拦截所有的servlet请求给springMVC处理 --&amp;gt;&amp;lt;servlet&amp;gt;        &amp;lt;servlet-name&amp;gt;springDispatcherServlet&amp;">
+  <meta name="description" content="假设我们有两张表。  Table A 是左边的表。 Table B 是右边的表。  其各有四条记录，其中有两条记录是相同的，如下所示： 123456id name       id  name-- ----       --  ----1  Pirate     1   Rutabaga2  Monkey     2   Pirate3  Ninja      3   Darth Vader4">
+<meta name="keywords" content="sql,JOIN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1、springMvc">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;22&#x2F;1%E3%80%81springMvc&#x2F;index.html">
+<meta property="og:title" content="图解SQL的JOIN">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;22&#x2F;%E5%9B%BE%E8%A7%A3SQL%E7%9A%84JOIN&#x2F;index.html">
 <meta property="og:site_name" content="归所">
-<meta property="og:description" content="springMvc1、拦截所有的请求，交给springMvc处理(DispatcherServlet)12345678910111213141516171819202122232425&amp;lt;!-- 拦截所有的servlet请求给springMVC处理 --&amp;gt;&amp;lt;servlet&amp;gt;        &amp;lt;servlet-name&amp;gt;springDispatcherServlet&amp;">
+<meta property="og:description" content="假设我们有两张表。  Table A 是左边的表。 Table B 是右边的表。  其各有四条记录，其中有两条记录是相同的，如下所示： 123456id name       id  name-- ----       --  ----1  Pirate     1   Rutabaga2  Monkey     2   Pirate3  Ninja      3   Darth Vader4">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-22T03:46:08.756Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Inner_Join.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Full_Outer_Join.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Left_Outer_Join.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Left_Out_Join_2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Full_Outer_Join_2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;SQL-Join.jpg">
+<meta property="og:updated_time" content="2019-11-22T08:52:55.292Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Inner_Join.png">
   
     <link rel="alternative" href="/atom.xml" title="归所" type="application/atom+xml">
   
@@ -61,6 +69,10 @@
 	        
 			</ul>
 		</nav>
+		<nav>
+        <a>总文章数 3</a>
+        <a>总字数 <span class="post-count">6.6k</span></a>
+    </nav>
 		<nav class="header-smart-menu">
     		
     			
@@ -140,66 +152,80 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-1、springMvc" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-图解SQL的JOIN" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      1、springMvc
+      图解SQL的JOIN
     </h1>
   
 
         
-        <a href="/2019/11/22/1%E3%80%81springMvc/" class="archive-article-date">
-  	<time datetime="2019-11-22T03:15:39.062Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/11/22/%E5%9B%BE%E8%A7%A3SQL%E7%9A%84JOIN/" class="archive-article-date">
+  	<time datetime="2019-11-22T08:44:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
 </a>
+
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="springMvc"><a href="#springMvc" class="headerlink" title="springMvc"></a>springMvc</h1><h2 id="1、拦截所有的请求，交给springMvc处理-DispatcherServlet"><a href="#1、拦截所有的请求，交给springMvc处理-DispatcherServlet" class="headerlink" title="1、拦截所有的请求，交给springMvc处理(DispatcherServlet)"></a>1、拦截所有的请求，交给springMvc处理(DispatcherServlet)</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 拦截所有的servlet请求给springMVC处理 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springDispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		配置xml文件的位置，若不配置文件的位置，</span></span><br><span class="line"><span class="comment">		使用默认的文件位置(固定文件名)web-inf/springDispatcherServlet-servlet.xml</span></span><br><span class="line"><span class="comment">	--&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span>        </span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springMvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span> //随tomcat服务器启动</span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springDispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">	/ 拦截所有的请求</span></span><br><span class="line"><span class="comment">	/user 拦截以user开头的请求</span></span><br><span class="line"><span class="comment">	/user/abc.dao 只拦截该请求</span></span><br><span class="line"><span class="comment">	.action 只拦截这种类型的请求	</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+        <p>假设我们有两张表。</p>
+<ul>
+<li><strong>Table A</strong> 是左边的表。</li>
+<li><strong>Table B</strong> 是右边的表。</li>
+</ul>
+<p>其各有四条记录，其中有两条记录是相同的，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">id name       id  name</span><br><span class="line">-- ----       --  ----</span><br><span class="line">1  Pirate     1   Rutabaga</span><br><span class="line">2  Monkey     2   Pirate</span><br><span class="line">3  Ninja      3   Darth Vader</span><br><span class="line">4  Spaghetti  4   Ninja</span><br></pre></td></tr></table></figure>
 
+<p>下面让我们来看看不同的Join会产生什么样的结果。</p>
 <a id="more"></a>
 
-<h2 id="2、配置视图解析器"><a href="#2、配置视图解析器" class="headerlink" title="2、配置视图解析器"></a>2、配置视图解析器</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/views/"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--配置扫描器，扫描配置文件（将bean加入spring容器中）--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.handle"</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th><code>SELECT * FROM TableA **INNER JOIN** TableB ON TableA.name = TableB.name id  name       id   name --  ----       --   ---- 1   Pirate     2    Pirate 3   Ninja      4    Ninja</code><strong>Inner join</strong> 产生的结果集中，是A和B的交集。</th>
+<th><img src="https://coolshell.cn/wp-content/uploads/2011/01/Inner_Join.png" alt="Venn diagram of SQL inner join"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SELECT * FROM TableA **FULL OUTER JOIN** TableB ON TableA.name = TableB.name id    name       id    name --    ----       --    ---- 1     Pirate     2     Pirate 2     Monkey     null  null 3     Ninja      4     Ninja 4     Spaghetti  null  null null  null       1     Rutabaga null  null       3     Darth Vader</code><strong>Full outer join</strong> 产生A和B的并集。但是需要注意的是，对于没有匹配的记录，则会以null做为值。</td>
+<td><img src="https://coolshell.cn/wp-content/uploads/2011/01/Full_Outer_Join.png" alt="Venn diagram of SQL cartesian join"></td>
+</tr>
+<tr>
+<td><code>SELECT * FROM TableA **LEFT OUTER JOIN** TableB ON TableA.name = TableB.name id  name       id    name --  ----       --    ---- 1   Pirate     2     Pirate 2   Monkey     null  null 3   Ninja      4     Ninja 4   Spaghetti  null  null</code><strong>Left outer join</strong> 产生表A的完全集，而B表中匹配的则有值，没有匹配的则以null值取代。</td>
+<td><img src="https://coolshell.cn/wp-content/uploads/2011/01/Left_Outer_Join.png" alt="Venn diagram of SQL left join"></td>
+</tr>
+<tr>
+<td><code>SELECT * FROM TableA LEFT OUTER JOIN TableB ON TableA.name = TableB.name **WHERE TableB.id IS null**  id  name       id     name --  ----       --     ---- 2   Monkey     null   null 4   Spaghetti  null   null</code>产生在A表中有而在B表中没有的集合。</td>
+<td><img src="https://coolshell.cn/wp-content/uploads/2011/01/Left_Out_Join_2.png" alt="join-left-outer.png"></td>
+</tr>
+<tr>
+<td><code>SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.name = TableB.name **WHERE TableA.id IS null OR TableB.id IS null** id    name       id    name --    ----       --    ---- 2     Monkey     null  null 4     Spaghetti  null  null null  null       1     Rutabaga null  null       3     Darth Vader</code>产生A表和B表都没有出现的数据集。</td>
+<td><img src="https://coolshell.cn/wp-content/uploads/2011/01/Full_Outer_Join_2.png" alt="join-outer.png"></td>
+</tr>
+</tbody></table>
+<p>还需要注册的是我们还有一个是“交差集” <strong>cross join</strong>, 这种Join没有办法用文式图表示，因为其就是把表A和表B的数据进行一个N*M的组合，即笛卡尔积。表达式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM TableA</span><br><span class="line">CROSS JOIN TableB</span><br></pre></td></tr></table></figure>
 
-<h2 id="3、requestMapping属性配置"><a href="#3、requestMapping属性配置" class="headerlink" title="3、requestMapping属性配置"></a>3、requestMapping属性配置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"welcome"</span>, method = RequestMethod.GET , params = &#123;<span class="string">"name=zs"</span>&#125;)</span><br><span class="line"><span class="comment">//value该属性的唯一id，method为请求的方法post/get，params为请求必须包含的参数值name且值为zs，"!age"表示没有该属性</span></span><br></pre></td></tr></table></figure>
+<p>这个笛卡尔乘积会产生 4 x 4 = 16 条记录，一般来说，我们很少用到这个语法。但是我们得小心，如果不是使用嵌套的select语句，一般系统都会产生笛卡尔乘积然再做过滤。这是对于性能来说是非常危险的，尤其是表很大的时候。</p>
+<p><img src="https://coolshell.cn/wp-content/uploads/2011/01/SQL-Join.jpg" alt="img"></p>
+<p><strong>【转载】</strong> 原文链接：<a href="https://coolshell.cn/articles/3463.html" target="_blank" rel="noopener">https://coolshell.cn/articles/3463.html</a> </p>
 
-<h2 id="4、ant风格的请求访问路径"><a href="#4、ant风格的请求访问路径" class="headerlink" title="4、ant风格的请求访问路径"></a>4、ant风格的请求访问路径</h2><p><code>？单字符</code></p>
-<p>*表示任意字符（0/n）</p>
-<p><code>** 任意目录</code></p>
-<h2 id="5、通过-pathVariable获取动态参数"><a href="#5、通过-pathVariable获取动态参数" class="headerlink" title="5、通过@pathVariable获取动态参数"></a>5、通过@pathVariable获取动态参数</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="welcome2/zs"&gt;path传值&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"welcome2/&#123;name&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">welcome2</span><span class="params">(@PathVariable(<span class="string">"name"</span>)</span>String name)</span>&#123;    </span><br><span class="line">    System.out.println(name);    </span><br><span class="line">    <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="6、通过-RequestParam获取参数值"><a href="#6、通过-RequestParam获取参数值" class="headerlink" title="6、通过@RequestParam获取参数值"></a>6、通过@RequestParam获取参数值</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"testParam"</span> method=<span class="string">"get"</span>&gt;  </span><br><span class="line">    &lt;input name=<span class="string">"uName"</span> type=<span class="string">"text"</span>/&gt;  </span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"查"</span>/&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"testParam"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testParam</span><span class="params">(@RequestParam(<span class="string">"uName"</span>)</span> String uName,@<span class="title">RequestParam</span><span class="params">(value = <span class="string">"uAge"</span>,required = <span class="keyword">false</span>,defaultValue = <span class="string">"18"</span>)</span><span class="keyword">int</span> age)</span>&#123;    </span><br><span class="line">    System.out.println(uName);    </span><br><span class="line">    <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//通过 required = false 设置参数为非必须函数，如果前端没有传值，可以使用默认值 defaultValue = "18"</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="7、REST风格（一般浏览器只支持get-post，使用过滤器处理delete-put）"><a href="#7、REST风格（一般浏览器只支持get-post，使用过滤器处理delete-put）" class="headerlink" title="7、REST风格（一般浏览器只支持get/post，使用过滤器处理delete/put）"></a>7、REST风格（一般浏览器只支持get/post，使用过滤器处理delete/put）</h2><p>GET：查询</p>
-<p>POST：增加</p>
-<p>DELETE：删除</p>
-<p>PUT：修改</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"hidden"</span> name=<span class="string">"_method"</span> value=<span class="string">"DELETE"</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"hidden"</span> name=<span class="string">"_method"</span> value=<span class="string">"PUT"</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"testPut/1234"</span> method=<span class="string">"post"</span>&gt;  </span><br><span class="line">    &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"_method"</span> value=<span class="string">"PUT"</span>/&gt;  </span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"改"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<p>配置拦截器（web.xml）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>HiddenHttpMethodFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.HiddenHttpMethodFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>HiddenHttpMethodFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="8、springMvc获取前端数据"><a href="#8、springMvc获取前端数据" class="headerlink" title="8、springMvc获取前端数据"></a>8、springMvc获取前端数据</h2><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"testObjectProperties"</span> method=<span class="string">"get"</span>&gt;  </span><br><span class="line">    name;&lt;input name=<span class="string">"name"</span> type=<span class="string">"text"</span>/&gt;  </span><br><span class="line">    年龄;&lt;input name=<span class="string">"age"</span> type=<span class="string">"text"</span>/&gt;  </span><br><span class="line">    家庭地址;&lt;input name=<span class="string">"address.schoolAddress"</span> type=<span class="string">"text"</span>/&gt;  </span><br><span class="line">    学校地址;&lt;input name=<span class="string">"address.homeAddress"</span> type=<span class="string">"text"</span>/&gt;  </span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"查"</span>/&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;!--前端使用的name值必须和实体类（对象的属性）字符段一致--&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"testObjectProperties"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testObjectProperties</span><span class="params">(Student student)</span></span>&#123;    </span><br><span class="line">    System.out.println(student);    </span><br><span class="line">    <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//参数为获取的实体类对象</span></span><br></pre></td></tr></table></figure>
       
 
       
         <div class="page-reward">
-          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+          <a href="#" class="page-reward-btn tooltip-top">
             <div class="tooltip tooltip-east">
             <span class="tooltip-item">
               赏
@@ -235,6 +261,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">JOIN</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -248,20 +289,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/22/springMvc/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/11/22/mysql%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          springMvc
+          mysql性能优化
         
       </div>
     </a>
   
-  
-    <a href="/2019/11/22/%E3%80%8C%E6%88%91%E5%8F%AA%E6%98%AF%E8%AE%A4%E7%9C%9F%E3%80%8D%E8%81%8A%E8%81%8A%E5%B7%A5%E5%8C%A0%E6%83%85%E6%80%80/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">「我只是认真」聊聊工匠情怀</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -286,7 +322,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#springMvc"><span class="toc-number">1.</span> <span class="toc-text">springMvc</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、拦截所有的请求，交给springMvc处理-DispatcherServlet"><span class="toc-number">1.1.</span> <span class="toc-text">1、拦截所有的请求，交给springMvc处理(DispatcherServlet)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、配置视图解析器"><span class="toc-number">1.2.</span> <span class="toc-text">2、配置视图解析器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、requestMapping属性配置"><span class="toc-number">1.3.</span> <span class="toc-text">3、requestMapping属性配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、ant风格的请求访问路径"><span class="toc-number">1.4.</span> <span class="toc-text">4、ant风格的请求访问路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、通过-pathVariable获取动态参数"><span class="toc-number">1.5.</span> <span class="toc-text">5、通过@pathVariable获取动态参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、通过-RequestParam获取参数值"><span class="toc-number">1.6.</span> <span class="toc-text">6、通过@RequestParam获取参数值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、REST风格（一般浏览器只支持get-post，使用过滤器处理delete-put）"><span class="toc-number">1.7.</span> <span class="toc-text">7、REST风格（一般浏览器只支持get/post，使用过滤器处理delete/put）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、springMvc获取前端数据"><span class="toc-number">1.8.</span> <span class="toc-text">8、springMvc获取前端数据</span></a></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -317,12 +353,21 @@
     	<div class="footer-left">
     		&copy; 2019 Hongx
     	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
     </div>
   </div>
+  
+          <!-- 不蒜子统计 -->
+          <span id="busuanzi_container_site_pv">
+                  本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>
+          <span class="post-meta-divider">|</span>
+          <span id="busuanzi_container_site_uv" style='display:none'>
+                  本站访客数<span id="busuanzi_value_site_uv"></span>人
+          </span>
+          <script async src="/busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
@@ -390,11 +435,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">springMvc</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">JOIN</a>
               </li>
             
             <div class="clearfix"></div>
