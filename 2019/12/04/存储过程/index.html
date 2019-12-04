@@ -6,25 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>图解SQL的JOIN | 归所</title>
+  <title>存储过程 | 归所</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="假设我们有两张表。  Table A 是左边的表。 Table B 是右边的表。  其各有四条记录，其中有两条记录是相同的，如下所示： 123456id name       id  name-- ----       --  ----1  Pirate     1   Rutabaga2  Monkey     2   Pirate3  Ninja      3   Darth Vader4">
-<meta name="keywords" content="sql,JOIN">
+  <meta name="description" content="1、无参的存储过程1、创建(无返回值)12345CREATE PROCEDURE productpricing()BEGIN	SELECT AVG(prod_price) AS priceaverage	FROM products;END;    2、使用1CALL productpricing()   3、删除12DROP PROCEDUREproductpricingDROP PROCEDUR">
+<meta name="keywords" content="mysql,存储过程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图解SQL的JOIN">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;22&#x2F;%E5%9B%BE%E8%A7%A3SQL%E7%9A%84JOIN&#x2F;index.html">
+<meta property="og:title" content="存储过程">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;04&#x2F;%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B&#x2F;index.html">
 <meta property="og:site_name" content="归所">
-<meta property="og:description" content="假设我们有两张表。  Table A 是左边的表。 Table B 是右边的表。  其各有四条记录，其中有两条记录是相同的，如下所示： 123456id name       id  name-- ----       --  ----1  Pirate     1   Rutabaga2  Monkey     2   Pirate3  Ninja      3   Darth Vader4">
+<meta property="og:description" content="1、无参的存储过程1、创建(无返回值)12345CREATE PROCEDURE productpricing()BEGIN	SELECT AVG(prod_price) AS priceaverage	FROM products;END;    2、使用1CALL productpricing()   3、删除12DROP PROCEDUREproductpricingDROP PROCEDUR">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Inner_Join.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Full_Outer_Join.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Left_Outer_Join.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Left_Out_Join_2.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Full_Outer_Join_2.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;SQL-Join.jpg">
-<meta property="og:updated_time" content="2019-11-22T08:52:55.292Z">
+<meta property="og:image" content="c:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203173355309.png">
+<meta property="og:image" content="c:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203194452010.png">
+<meta property="og:image" content="c:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203195222210.png">
+<meta property="og:image" content="c:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203202203230.png">
+<meta property="og:updated_time" content="2019-12-04T01:36:15.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;coolshell.cn&#x2F;wp-content&#x2F;uploads&#x2F;2011&#x2F;01&#x2F;Inner_Join.png">
+<meta name="twitter:image" content="c:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203173355309.png">
   
     <link rel="alternative" href="/atom.xml" title="归所" type="application/atom+xml">
   
@@ -148,14 +146,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-图解SQL的JOIN" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-存储过程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      图解SQL的JOIN
+      存储过程
     </h1>
   
 
@@ -166,8 +164,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/11/22/%E5%9B%BE%E8%A7%A3SQL%E7%9A%84JOIN/" class="archive-article-date">
-        <time datetime="2019-11-22T08:44:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+<a href="/2019/12/04/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" class="archive-article-date">
+        <time datetime="2019-12-04T01:32:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
 </a>
 
         
@@ -175,47 +173,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>假设我们有两张表。</p>
-<ul>
-<li><strong>Table A</strong> 是左边的表。</li>
-<li><strong>Table B</strong> 是右边的表。</li>
-</ul>
-<p>其各有四条记录，其中有两条记录是相同的，如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">id name       id  name</span><br><span class="line">-- ----       --  ----</span><br><span class="line">1  Pirate     1   Rutabaga</span><br><span class="line">2  Monkey     2   Pirate</span><br><span class="line">3  Ninja      3   Darth Vader</span><br><span class="line">4  Spaghetti  4   Ninja</span><br></pre></td></tr></table></figure>
+        <h1 id="1、无参的存储过程"><a href="#1、无参的存储过程" class="headerlink" title="1、无参的存储过程"></a>1、无参的存储过程</h1><h2 id="1、创建-无返回值"><a href="#1、创建-无返回值" class="headerlink" title="1、创建(无返回值)"></a>1、创建(无返回值)</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> productpricing()</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(prod_price) <span class="keyword">AS</span> priceaverage</span><br><span class="line">	<span class="keyword">FROM</span> products;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
 
-<p>下面让我们来看看不同的Join会产生什么样的结果。</p>
+
+
+<h2 id="2、使用"><a href="#2、使用" class="headerlink" title="2、使用"></a>2、使用</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CALL</span> productpricing()</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203173355309.png" alt="image-20191203173355309"></p>
+<h2 id="3、删除"><a href="#3、删除" class="headerlink" title="3、删除"></a>3、删除</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> PROCEDUREproductpricing</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> productpricing;</span><br></pre></td></tr></table></figure>
+
+
+
 <a id="more"></a>
 
-<table>
-<thead>
-<tr>
-<th><code>SELECT * FROM TableA **INNER JOIN** TableB ON TableA.name = TableB.name id  name       id   name --  ----       --   ---- 1   Pirate     2    Pirate 3   Ninja      4    Ninja</code><strong>Inner join</strong> 产生的结果集中，是A和B的交集。</th>
-<th><img src="https://coolshell.cn/wp-content/uploads/2011/01/Inner_Join.png" alt="Venn diagram of SQL inner join"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>SELECT * FROM TableA **FULL OUTER JOIN** TableB ON TableA.name = TableB.name id    name       id    name --    ----       --    ---- 1     Pirate     2     Pirate 2     Monkey     null  null 3     Ninja      4     Ninja 4     Spaghetti  null  null null  null       1     Rutabaga null  null       3     Darth Vader</code><strong>Full outer join</strong> 产生A和B的并集。但是需要注意的是，对于没有匹配的记录，则会以null做为值。</td>
-<td><img src="https://coolshell.cn/wp-content/uploads/2011/01/Full_Outer_Join.png" alt="Venn diagram of SQL cartesian join"></td>
-</tr>
-<tr>
-<td><code>SELECT * FROM TableA **LEFT OUTER JOIN** TableB ON TableA.name = TableB.name id  name       id    name --  ----       --    ---- 1   Pirate     2     Pirate 2   Monkey     null  null 3   Ninja      4     Ninja 4   Spaghetti  null  null</code><strong>Left outer join</strong> 产生表A的完全集，而B表中匹配的则有值，没有匹配的则以null值取代。</td>
-<td><img src="https://coolshell.cn/wp-content/uploads/2011/01/Left_Outer_Join.png" alt="Venn diagram of SQL left join"></td>
-</tr>
-<tr>
-<td><code>SELECT * FROM TableA LEFT OUTER JOIN TableB ON TableA.name = TableB.name **WHERE TableB.id IS null**  id  name       id     name --  ----       --     ---- 2   Monkey     null   null 4   Spaghetti  null   null</code>产生在A表中有而在B表中没有的集合。</td>
-<td><img src="https://coolshell.cn/wp-content/uploads/2011/01/Left_Out_Join_2.png" alt="join-left-outer.png"></td>
-</tr>
-<tr>
-<td><code>SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.name = TableB.name **WHERE TableA.id IS null OR TableB.id IS null** id    name       id    name --    ----       --    ---- 2     Monkey     null  null 4     Spaghetti  null  null null  null       1     Rutabaga null  null       3     Darth Vader</code>产生A表和B表都没有出现的数据集。</td>
-<td><img src="https://coolshell.cn/wp-content/uploads/2011/01/Full_Outer_Join_2.png" alt="join-outer.png"></td>
-</tr>
-</tbody></table>
-<p>还需要注册的是我们还有一个是“交差集” <strong>cross join</strong>, 这种Join没有办法用文式图表示，因为其就是把表A和表B的数据进行一个N*M的组合，即笛卡尔积。表达式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM TableA</span><br><span class="line">CROSS JOIN TableB</span><br></pre></td></tr></table></figure>
+<h1 id="2、带参有返回值的存储过程"><a href="#2、带参有返回值的存储过程" class="headerlink" title="2、带参有返回值的存储过程"></a>2、带参有返回值的存储过程</h1><h2 id="1、返回值"><a href="#1、返回值" class="headerlink" title="1、返回值"></a>1、返回值</h2><h3 id="1、创建"><a href="#1、创建" class="headerlink" title="1、创建"></a>1、创建</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> productpricing(</span><br><span class="line">	<span class="keyword">OUT</span> pl <span class="built_in">DECIMAL</span>(<span class="number">8</span>,<span class="number">2</span>),</span><br><span class="line">	<span class="keyword">OUT</span> ph <span class="built_in">DECIMAL</span>(<span class="number">8</span>,<span class="number">2</span>),</span><br><span class="line">	<span class="keyword">OUT</span> pa <span class="built_in">DECIMAL</span>(<span class="number">8</span>,<span class="number">2</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(prod_price)</span><br><span class="line">	<span class="keyword">INTO</span> pl</span><br><span class="line">	<span class="keyword">FROM</span> products;</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(prod_price)</span><br><span class="line">	<span class="keyword">INTO</span> ph</span><br><span class="line">	<span class="keyword">FROM</span> products;</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(prod_price)</span><br><span class="line">	<span class="keyword">INTO</span> pa</span><br><span class="line">	<span class="keyword">FROM</span> products;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
 
-<p>这个笛卡尔乘积会产生 4 x 4 = 16 条记录，一般来说，我们很少用到这个语法。但是我们得小心，如果不是使用嵌套的select语句，一般系统都会产生笛卡尔乘积然再做过滤。这是对于性能来说是非常危险的，尤其是表很大的时候。</p>
-<p><img src="https://coolshell.cn/wp-content/uploads/2011/01/SQL-Join.jpg" alt="img"></p>
-<p><strong>【转载】</strong> 原文链接：<a href="https://coolshell.cn/articles/3463.html" target="_blank" rel="noopener">https://coolshell.cn/articles/3463.html</a> </p>
+
+
+<h3 id="2、调用（SQL中变量必须以-开头）"><a href="#2、调用（SQL中变量必须以-开头）" class="headerlink" title="2、调用（SQL中变量必须以@开头）"></a>2、调用（SQL中变量必须以@开头）</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CALL</span> productpricing(@pl,@ph,@pa);</span><br><span class="line"><span class="keyword">SELECT</span> @pl,@ph,@pa</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203194452010.png" alt="image-20191203194452010"></p>
+<h2 id="2、带参数的存储过程（in-表示输入参数）"><a href="#2、带参数的存储过程（in-表示输入参数）" class="headerlink" title="2、带参数的存储过程（in - 表示输入参数）"></a>2、带参数的存储过程（in - 表示输入参数）</h2><h3 id="1、创建-1"><a href="#1、创建-1" class="headerlink" title="1、创建"></a>1、创建</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> orderTotal(</span><br><span class="line">	<span class="keyword">IN</span> onumber <span class="built_in">INT</span>,</span><br><span class="line">	<span class="keyword">OUT</span> ototal <span class="built_in">DECIMAL</span>(<span class="number">8</span>,<span class="number">2</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">SUM</span>(item_price * quantity)</span><br><span class="line">	<span class="keyword">FROM</span> orderitems</span><br><span class="line">	<span class="keyword">WHERE</span> order_num = onumber</span><br><span class="line">	<span class="keyword">INTO</span> ototal;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、使用-1"><a href="#2、使用-1" class="headerlink" title="2、使用"></a>2、使用</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CALL</span> orderTotal(<span class="number">20005</span>, @total);</span><br><span class="line"><span class="keyword">SELECT</span> @total</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203195222210.png" alt="image-20191203195222210"></p>
+<h2 id="3、更加复杂的存储过程"><a href="#3、更加复杂的存储过程" class="headerlink" title="3、更加复杂的存储过程"></a>3、更加复杂的存储过程</h2><h3 id="1、创建-2"><a href="#1、创建-2" class="headerlink" title="1、创建"></a>1、创建</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 此存储过程是orderTotal的升级版，用于计算是否计算税率</span></span><br><span class="line"><span class="comment">-- parameters:</span></span><br><span class="line"><span class="comment">-- 	onumber 查询的订单号</span></span><br><span class="line"><span class="comment">-- 	taxable 表示是否计算税率，true为1，否则为0</span></span><br><span class="line"><span class="comment">-- 	ototal 表示最后的总值</span></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> orderTotalPro(</span><br><span class="line">	<span class="keyword">IN</span> onumber <span class="built_in">INT</span>,</span><br><span class="line">	<span class="keyword">IN</span> taxable <span class="built_in">BOOLEAN</span>,</span><br><span class="line">	<span class="keyword">OUT</span> ototal <span class="built_in">DECIMAL</span>(<span class="number">8</span>,<span class="number">2</span>)</span><br><span class="line">	)<span class="keyword">COMMENT</span><span class="string">'Obtain order total, optionally adding tax'</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="comment">-- 设置局部变量</span></span><br><span class="line">	<span class="keyword">DECLARE</span> total <span class="built_in">DECIMAL</span>(<span class="number">8</span>,<span class="number">2</span>);</span><br><span class="line"><span class="comment">-- 设置默认的税率为6%</span></span><br><span class="line">	<span class="keyword">DECLARE</span> taxrate <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">6</span>;</span><br><span class="line">	</span><br><span class="line"><span class="comment">-- 计算不含税率的部分</span></span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">SUM</span>(item_price * quantity)</span><br><span class="line">	<span class="keyword">FROM</span> orderitems</span><br><span class="line">	<span class="keyword">WHERE</span> order_num = onumber</span><br><span class="line">	<span class="keyword">INTO</span> total;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 判断是否计算税率</span></span><br><span class="line">	IF taxable THEN</span><br><span class="line">		<span class="keyword">SELECT</span> total + (total * taxrate / <span class="number">100</span>) <span class="keyword">INTO</span> total;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line"><span class="comment">-- 返回最后的税率</span></span><br><span class="line">	<span class="keyword">SELECT</span> total <span class="keyword">INTO</span> ototal;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、使用-2"><a href="#2、使用-2" class="headerlink" title="2、使用"></a>2、使用</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CALL</span> orderTotalPro(<span class="number">20005</span>,<span class="number">0</span>,@total);</span><br><span class="line"><span class="keyword">SELECT</span> @total;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203202203230.png" alt="image-20191203202203230"></p>
 
       
 
@@ -262,11 +253,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">sql</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">JOIN</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">存储过程</a>
         		</li>
       		
 		</ul>
@@ -285,15 +276,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/22/%E5%A6%82%E4%BD%95%E8%B6%85%E8%BF%87%E5%A4%A7%E5%A4%9A%E6%95%B0%E4%BA%BA/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          如何超过大多数人
-        
-      </div>
-    </a>
   
+    <a href="/2019/12/04/mysql%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql入门</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -318,7 +305,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1、无参的存储过程"><span class="toc-number">1.</span> <span class="toc-text">1、无参的存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、创建-无返回值"><span class="toc-number">1.1.</span> <span class="toc-text">1、创建(无返回值)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、使用"><span class="toc-number">1.2.</span> <span class="toc-text">2、使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、删除"><span class="toc-number">1.3.</span> <span class="toc-text">3、删除</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、带参有返回值的存储过程"><span class="toc-number">2.</span> <span class="toc-text">2、带参有返回值的存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、返回值"><span class="toc-number">2.1.</span> <span class="toc-text">1、返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、创建"><span class="toc-number">2.1.1.</span> <span class="toc-text">1、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、调用（SQL中变量必须以-开头）"><span class="toc-number">2.1.2.</span> <span class="toc-text">2、调用（SQL中变量必须以@开头）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、带参数的存储过程（in-表示输入参数）"><span class="toc-number">2.2.</span> <span class="toc-text">2、带参数的存储过程（in - 表示输入参数）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、创建-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">1、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、使用-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">2、使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、更加复杂的存储过程"><span class="toc-number">2.3.</span> <span class="toc-text">3、更加复杂的存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、创建-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">1、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、使用-2"><span class="toc-number">2.3.2.</span> <span class="toc-text">2、使用</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

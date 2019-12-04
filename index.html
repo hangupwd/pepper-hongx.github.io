@@ -141,6 +141,185 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-存储过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/04/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/">存储过程</a>
+    </h1>
+  
+
+        
+        
+<a href="/2019/12/04/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" class="archive-article-date">
+        <time datetime="2019-12-04T01:32:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1、无参的存储过程"><a href="#1、无参的存储过程" class="headerlink" title="1、无参的存储过程"></a>1、无参的存储过程</h1><h2 id="1、创建-无返回值"><a href="#1、创建-无返回值" class="headerlink" title="1、创建(无返回值)"></a>1、创建(无返回值)</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> productpricing()</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(prod_price) <span class="keyword">AS</span> priceaverage</span><br><span class="line">	<span class="keyword">FROM</span> products;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2、使用"><a href="#2、使用" class="headerlink" title="2、使用"></a>2、使用</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CALL</span> productpricing()</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203173355309.png" alt="image-20191203173355309"></p>
+<h2 id="3、删除"><a href="#3、删除" class="headerlink" title="3、删除"></a>3、删除</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> PROCEDUREproductpricing</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> productpricing;</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">存储过程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/04/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/04/mysql%E5%85%A5%E9%97%A8/">mysql入门</a>
+    </h1>
+  
+
+        
+        
+<a href="/2019/12/04/mysql%E5%85%A5%E9%97%A8/" class="archive-article-date">
+        <time datetime="2019-12-04T01:32:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1、DISTINCT（查询只返回不同的值，去重）"><a href="#1、DISTINCT（查询只返回不同的值，去重）" class="headerlink" title="1、DISTINCT（查询只返回不同的值，去重）"></a>1、DISTINCT（查询只返回不同的值，去重）</h1><ul>
+<li><strong><code>SELECT DISTINCT vend_id FROM products</code></strong></li>
+</ul>
+<h1 id="2、LIMIT"><a href="#2、LIMIT" class="headerlink" title="2、LIMIT"></a>2、LIMIT</h1><p>ＬＩＭＩＴ５　返回数据不多于5行，1-15表示第从第一行开始，一直到第１５行结束，若数据不足１５行，返回表中最大的数据行数，（表中数据从０开始排序–返回前五行数据-&gt;用 0,5 表示）</p>
+<ul>
+<li><code>SELECT prod_name FROM products LIMIT 1,15</code></li>
+</ul>
+<h1 id="3、ORDER-BY-默认为升序-降序使用-DESC"><a href="#3、ORDER-BY-默认为升序-降序使用-DESC" class="headerlink" title="3、ORDER  BY (默认为升序,降序使用 DESC)"></a>3、ORDER  BY (默认为升序,降序使用 DESC)</h1><ul>
+<li><code>SELECT prod_id, prod_price,prod_name FROM products ORDER BY prod_price DESC, prod_name DESC</code></li>
+</ul>
+<p>排序的字段不必须为显示的字段,只要是从表中的字段即可</p>
+<p><img src="C:%5CUsers%5CBUG%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191203113453573.png" alt="image-20191203113453573"></p>
+<p>order by必须在from后面,limit必须在order by之后,严格限制顺序</p>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/04/mysql%E5%85%A5%E9%97%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MYSQL-INNODB-还是-MYISAM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -766,7 +945,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">存储过程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -774,7 +957,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">C++</a>
               </li>
             
             <div class="clearfix"></div>
